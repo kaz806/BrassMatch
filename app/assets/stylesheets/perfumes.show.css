@@ -1,0 +1,108 @@
+/* perfumes_show.css */
+
+/* 全体の余白とフォント調整 */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+
+/* 診断結果のイントロ部分 */
+.intoro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.intoro h5 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.intoro p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+/* 診断結果のカード全体 */
+.tweet-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* タイプごとの見出し */
+.tweet h6 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #34495e;
+}
+
+/* タイプ説明文 */
+.tweet p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* 結果が見つからなかった場合のスタイル */
+.tweet h6:not(:first-child) {
+  margin-top: 2rem;
+  color: #e74c3c;
+}
+
+/* 絵文字を強調 */
+.tweet h6::first-letter {
+  font-size: 1.6rem;
+  margin-right: 0.3rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .tweet-container {
+    padding: 1.2rem;
+  }
+
+  .intoro h5 {
+    font-size: 1.5rem;
+  }
+
+  .tweet h6 {
+    font-size: 1.2rem;
+  }
+
+  .tweet p {
+    font-size: 1rem;
+  }
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.back-link .btn {
+  display: inline-block;
+  padding: 0.8em 1.6em;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007bff;
+  background-color: #fff;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-link .btn:hover {
+  background-color: #007bff;
+  color: #fff;
+}

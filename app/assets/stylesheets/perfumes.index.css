@@ -1,0 +1,30 @@
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 2em;
+  color: #333;
+}
+
+.link {
+  display: inline-block;
+  margin: 1.5em auto;
+  padding: 0.8em 1.6em;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.start-button {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.link:hover {
+  background-color: #0056b3;
+}

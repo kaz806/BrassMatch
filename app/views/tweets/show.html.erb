@@ -1,0 +1,16 @@
+<h1>ツイート詳細</h1>
+
+<% if @tweet.user.present? %>
+  <p>名前 : <%= @tweet.user.name %></p>
+  <p>メールアドレス : <%= @tweet.user.email %></p>
+  <p>プロフィール : <%= @tweet.user.profile %></p>
+  <% if current_user && current_user.id == @user.id %>
+    <%= link_to "編集する", edit_user_registration_path %>
+  <% end %>
+<% else %>
+  <p>投稿者情報が取得できませんでした</p>
+<% end %>
+
+<p><strong>内容:</strong> <%= @tweet.detail %></p>
+
+<%= link_to "Tweet一覧に戻る", tweets_path, class: "btn btn-secondary" %>

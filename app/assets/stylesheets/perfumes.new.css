@@ -1,0 +1,128 @@
+/* perfumes_new.css */
+
+p.check-instruction {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1em;
+  background-color: #f9f9f9;
+  padding: 0.5em 1em;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+}
+
+/* 全体の余白とフォント */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f8f9fa;
+  padding: 2rem;
+  color: #333;
+}
+
+/* 質問全体のコンテナ */
+.container-sindan {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 質問ブロック（1問ずつ） */
+.question-block {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* 質問文 */
+.question-block p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* 選択肢のペア */
+.option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.option input[type="radio"] {
+  accent-color: #3498db;
+  transform: scale(1.2);
+}
+
+.option label {
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+}
+
+/* 診断ボタン */
+.sindanbotan {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.sindanbotan input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sindanbotan input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .container-sindan {
+    padding: 1rem;
+  }
+
+  .option {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .option label {
+    margin-top: 0.3rem;
+  }
+
+  .sindanbotan input[type="submit"] {
+    width: 100%;
+  }
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.back-link .btn {
+  display: inline-block;
+  padding: 0.8em 1.6em;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007bff;
+  background-color: #fff;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-link .btn:hover {
+  background-color: #007bff;
+  color: #fff;
+}

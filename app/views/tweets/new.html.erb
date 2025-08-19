@@ -1,0 +1,24 @@
+<div class="center-wrapper">
+  <div class="content-box">
+    <h1>BrassMatch</h1>
+    <h3 class="center-title">おすすめの吹奏楽曲を教えてください！</h3>
+
+    <div class="post-container">
+      <%= form_for @tweet do |f| %>
+        <div class="field">
+          <%= f.label :music, "曲名" %><br>
+          <%= f.text_field :music, size: 30 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :detail, "コメント" %><br>
+          <%= f.text_area :detail, size: "30x2" %>
+        </div>
+
+        <%= f.submit "投稿する", class: "submit-button" %>
+      <% end %>
+
+      <%= link_to "一覧に戻る", tweets_path, class: "back-link" %>
+    </div>
+  </div>
+</div>
