@@ -31,7 +31,7 @@ html, body {
 .mypage-link {
   margin: 10px 0;
   text-decoration: none;
-  color: #007bff;
+  color: #08c7a8;
 }
 
 .tweets-container {
@@ -87,7 +87,7 @@ html, body {
 
 .right-container a {
   padding: 6px 12px;
-  background-color: #007bff;
+  background-color: #08c7a8;
   color: white;
   border-radius: 4px;
   text-decoration: none;
@@ -95,7 +95,7 @@ html, body {
 }
 
 .right-container a:hover {
-  background-color: #0056b3;
+  background-color: #08c7a8;
 }
 
 .site-header {
