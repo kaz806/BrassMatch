@@ -10,12 +10,12 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
+  padding: 20px 20px;
 }
 
 .page-title {
   font-size: 32px;
-  margin-bottom: 10px;
+  margin-bottom: 30px; /* ← ここを広げるのがポイント */
   text-align: center;
   color: #222;
 }
@@ -95,7 +95,7 @@ html, body {
 }
 
 .right-container a:hover {
-  background-color: #08c7a8;
+  background-color: #08b094;
 }
 
 .site-header {
@@ -166,3 +166,10 @@ html, body {
 .dropdown-item:hover {
   background-color: #f5f5f5;
 }
+
+.mypage-link,
+.new-post-link {
+  display: block;
+  margin-bottom: 1em; /* 適度な余白 */
+}
+

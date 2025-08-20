@@ -1,0 +1,88 @@
+.registration-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 64px;
+  box-sizing: border-box;
+}
+
+.registration-wrapper h2 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 32px;
+  color: #333;
+  text-align: center;
+}
+
+.registration-wrapper form {
+  width: 100%;
+  max-width: 480px;
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.field input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.field em {
+  font-size: 13px;
+  color: #888;
+  display: block;
+  margin-top: 4px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.actions input[type="submit"] {
+  background-color: #08c7a8;
+  color: white;
+  padding: 10px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #08c7a8;
+}
+
+.devise-links {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.devise-links a {
+  display: inline-block;
+  margin: 8px 0;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.devise-links a:hover {
+  text-decoration: underline;
+}

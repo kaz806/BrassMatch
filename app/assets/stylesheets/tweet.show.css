@@ -1,0 +1,128 @@
+/* 全体ラッパー */
+.tweet-detail-container {
+  max-width: 720px;
+  margin: 2em auto;
+  padding: 1.5em;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* 見出し */
+.tweet-detail-container h1 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.3em;
+}
+
+/* 投稿ボックス */
+.tweet-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1.5em;
+  margin: 2em 0;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 投稿内容 */
+.tweet-content {
+  margin-bottom: 1.5em;
+}
+
+/* ユーザー情報ボックス */
+.user-info-box {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.2em 1.5em;
+  margin: 1.5em 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.user-info-box p {
+  margin: 0.5em 0;
+  font-size: 1em;
+  color: #444;
+}
+
+/* エラーメッセージ */
+.alert {
+  color: #dc3545;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+/* ボタン共通 */
+.btn {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  font-size: 0.95em;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-edit {
+  background-color: #08c7a8;
+  color: #fff;
+  padding: 0.4em 1em;       /* 横幅を抑えた自然な余白 */
+  margin-top: 1em;
+  display: inline-block;    /* コンテンツサイズに合わせる */
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.edit-button-wrapper {
+  text-align: center;
+}
+
+.btn-edit:hover {
+  background-color: #08b094;
+}
+
+/* 戻るボタンなど */
+.back-link-wrapper {
+  text-align: center;
+}
+
+.btn-secondary {
+  background-color: #08c7a8;
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  display: inline-block;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 1.5em;
+}
+
+.btn-secondary:hover {
+  background-color: #08b094;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+.profile-box {
+  background-color: #f9f9f9;
+  padding: 1.5em;
+  border-radius: 8px;
+  margin-bottom: 2em;
+}
+
+.tweet-list-box {
+  background-color: #fff;
+  padding: 1.5em;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+

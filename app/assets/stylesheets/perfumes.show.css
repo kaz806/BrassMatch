@@ -103,22 +103,39 @@ body {
 }
 
 .back-link .btn:hover {
-  background-color: #08c7a8;
+  background-color: #08b094;
   color: #fff;
 }
 
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
+.listen-button-wrapper {
+  text-align: center;
   margin-top: 16px;
 }
 
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.btn-listen {
+  background-color: #08c7a8;         /* 爽やかで印象的な色味 */
+  color: #fff;                       /* コントラストを強調 */
+  padding: 0.6em 1.2em;              /* 余白でクリックしやすさUP */
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;                /* 柔らかい印象に */
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* 立体感を演出 */
+}
+
+.btn-listen:hover {
+  background-color: #06a18a;         /* ホバー時の変化で誘導 */
+}
+
+.music-block {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.music-block p {
+  font-weight: bold;
+  margin-bottom: 8px;
 }

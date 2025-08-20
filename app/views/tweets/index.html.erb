@@ -1,9 +1,7 @@
 <div class="page-wrapper">
-  <h1 class="page-title">自分の題名</h1>
-  <h3 class="page-subtitle">コメント</h3>
+  <h1 class="page-title">コメント一覧</h1>
 
   <div class="tweets-container">
-    <h3 class="section-title">Tweet一覧</h3>
 
     <% @tweets.each do |t| %>
       <div class="tweet">
@@ -26,11 +24,13 @@
       </div>
     <% end %>
 
-    <% if user_signed_in? %>
-      <%= link_to "マイページへ", user_path(current_user.id), class: "mypage-link" %>
-    <% end %>
+    <div class="nav-links">
+  <% if user_signed_in? %>
+    <div><%= link_to "マイページへ", user_path(current_user.id), class: "mypage-link" %></div>
+  <% end %>
 
-    <%= link_to "新規投稿へ", new_tweet_path, class: "new-post-link" %>
+  <div><%= link_to "新規投稿へ", new_tweet_path, class: "new-post-link" %></div>
+</div>
 
   </div>
 </div>

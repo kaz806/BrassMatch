@@ -1,16 +1,27 @@
-<h1>ツイート詳細</h1>
+<div class="tweet-detail-container">
+  <h1>コメント詳細</h1>
 
-<% if @tweet.user.present? %>
-  <p>名前 : <%= @tweet.user.name %></p>
-  <p>メールアドレス : <%= @tweet.user.email %></p>
-  <p>プロフィール : <%= @tweet.user.profile %></p>
-  <% if current_user && current_user.id == @user.id %>
-    <%= link_to "編集する", edit_user_registration_path %>
+  <% if @tweet.user.present? %>
+    <div class="user-info-box">
+      <p><strong>名前:</strong> <%= @tweet.user.name %></p>
+      <p><strong>メールアドレス:</strong> <%= @tweet.user.email %></p>
+      <p><strong>プロフィール:</strong> <%= @tweet.user.profile %></p>
+    </div>
+
+    <div class="tweet-box">
+    <div class="tweet-content">
+      <p><strong>内容:</strong> <%= @tweet.detail %></p>
+    </div>
+
+  </div>
+  <% else %>
+    <p class="alert">投稿者情報が取得できませんでした</p>
   <% end %>
-<% else %>
-  <p>投稿者情報が取得できませんでした</p>
-<% end %>
 
-<p><strong>内容:</strong> <%= @tweet.detail %></p>
+  </div>
 
-<%= link_to "Tweet一覧に戻る", tweets_path, class: "btn btn-secondary" %>
+</div>
+
+<div class="back-link-wrapper">
+  <%= link_to "コメント一覧に戻る", tweets_path, class: "btn btn-secondary" %>
+  </div>

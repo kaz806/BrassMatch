@@ -1,119 +1,970 @@
-<h1>ツイート詳細</h1>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
+<h1 class="page-title">ツイート詳細</h1>
 
-<% if @user.present? %>
-  <p>名前 : <%= @user.name %></p>
-<% else %>
-  <p>投稿者情報が取得できませんでした</p>
-<% end %>
+<div class="user-info">
+  <% if @user.present? %>
+    <% user_info = [
+      "名前 : #{h(@user.name)}",
+      "メールアドレス : #{h(@user.email)}",
+      "プロフィール : #{h(@user.profile)}"
+    ] %>
 
+    <% user_info.each do |info| %>
+      <p><%= info %></p>
+    <% end %>
+  <% else %>
+    <p>投稿者情報が取得できませんでした</p>
+  <% end %>
 
-<% if current_user && current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
+  <% if current_user && current_user.id == @user.id %>
+    <div class="center-button">
+    <%= link_to "編集する", edit_user_registration_path, class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>
 
-<h2>ユーザーの投稿一覧</h2>
+<h2 class="section-title">ユーザーの投稿一覧</h2>
+
 <% @user.tweets.each do |t| %>
-  <p><strong>投稿者:</strong> <%= t.user.name %></p>
-  <p><strong>内容:</strong> <%= t.detail %></p>
-  <p><%= link_to "詳細を見る", tweet_path(t), class: "btn btn-outline-primary" %></p>
+  <div class="tweet-item">
+    <p><strong>投稿者:</strong> <%= t.user.name %></p>
+    <p><strong>内容:</strong> <%= t.detail %></p>
+   <div class="center-button">
+   <%= link_to "詳細を見る", tweet_path(t), class: "btn btn-outline-primary" %>
+ 　</div>　　
+  </div>
 <% end %>
 
-
-<h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_tweets.each do |t| %>
-  <%= t.user.name %>
-  <%= t.detail %>
-<% end %>
-
-<%= link_to "Tweet一覧に戻る", tweets_path %>
+<div class="center-button">
+  <%= link_to "Tweet一覧に戻る", tweets_path, class: "btn btn-outline-primary" %>
+</div>
 
 <% @user.perfumes.each do |t| %>
-    <% if ["11111", "11121", "11131", "11141", "12111", "12121", "12131", "12141", "13111", "13121", "13131", "13141"].include?(t.question_code) %>
+                <% if ["11111", "11121", "11131", "11141", "12111", "12121", "12131", "12141", "13111", "13121", "13131", "13141"].include?(t.question_code) %>
                 <h6>🎺: 「勝負曲で突き進め！」タイプ</h6>
                 <p>勢いとパワーに満ちたあなたには、金管が鳴り響く熱いマーチやアップテンポなファンファーレがおすすめ! 冒険や挑戦を後押しする1曲を。</p>
-                <p>清涼感があり、爽やかな印象</p>
+ 
+                <div class="music-block">
+                <p>March Washington Post(行進曲ワシントンポスト)</p>
+                <p>作曲：John Philip Sousa</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=OCfHNZtcv7U", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
 
+                <div class="music-block">
+                <p>CENTURIA(センチュリア)</p>
+                <p>作曲：James Swearingen</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=tFRbm4RrJTA", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>行進曲「K点を越えて」</p>
+                <p>作曲：髙橋 伸哉</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=6XudFvYR8gY?si=9duGFvlI6BgPzWRC", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ARSENAL(アルセナール)</p>
+                <p>作曲：Jan Van der Roost</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=kEmsoRxKk7w", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>El Camino Real(エル・カミーノ・レアル)</p>
+                <p>作曲：Alfred Reed</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=9YEuC0QRylo?si=aq621-LMK8Grs1Yy", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>マーチ「ブルー・スプリング」</p>
+                <p>作曲：鈴木 雅史</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=Wls_whoi_JA?si=ZbZG13tJWXhQpC7C", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
+            
                 <% elsif ["11211", "11221", "11231", "11241", "12211", "12221", "12231", "12241", "13211", "13221", "13231", "13241"].include?(t.question_code) %>
                 <h6>🎼: 「ドラマティックな感情爆発」タイプ</h6>
                 <p>展開に富んだストーリー性ある曲で、情熱を芸術で表現したような名曲をどうぞ。</p>
-                <p>リラックス効果がある</p>
+
+                <div class="music-block">
+                <p>Machu Picchu -City in the Sky-The Mystery of Hidden Sun Temple</p>
+                <p>(空中都市「マチュピチュ」～隠された太陽神殿の謎～)</p>
+                <p>作曲：八木澤 教司</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=RFHq67HsqeQ?si=JA4iuW3PhPtg8_yK", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ROMANESQUE(ロマネスク)</p>
+                <p>作曲：James Swearingen</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=HUcaw34o6U4?si=ckOh2F3eTiAR1qEx", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>- ALVAMAR OVERTURE(アルヴァマー序曲)</p>
+                <p>作曲：James Barnen</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=j-GVSeZQ5es", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>APPALACHIAN OVERTURE(アパラチアン序曲)</p>
+                <p>作曲：James Barnen</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=7B-eAZ02Pzk?si=XHxI8vO-yLBEMqVo", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ラザロの復活</p>
+                <p>作曲：樽屋 雅徳</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=WLLsykh2yK0?si=ljsClT_RVAHHaDsD", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>KA-GU-RA for Band</p>
+                <p>作曲：福田 洋介</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=f3HgOYs6p9o?si=ovKMsq0oiny5b-v-", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["21111", "21121", "21131", "21141", "22111", "22121", "22131", "22141", "23111", "23121", "23131", "23141" ].include?(t.question_code) %>
                 <h6> 🌿: 「ほんわか癒しノリ」タイプ</h6>
                 <p>木管のやわらかな響きや軽快なスウィング調の曲がおすすめです。</p>
-                <p>ストレスを緩和してくれる効果がある</p>
+                
+                <div class="music-block">
+                <p>Take the "A" Train(A列車で行こう)</p>
+                <p>作曲：Billy Strayhorn</p>
+                <p>編曲：岩井 直溥</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=XYjWfSeXhFU?si=LOY4fihBmni5yx6b", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Moonlight Serenade(ムーンライト・セレナーデ)</p>
+                <p>作曲：Glenn Miller</p>
+                <p>編曲：金山 徹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=zZuhMK1s9Cw?si=RXoRdF_Os2FTDzs9", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ベイ・ブリーズ-岩井直溥氏に捧ぐ-</p>
+                <p>作曲・編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=HUcaw34o6U4?si=dGFL3ynhHZ8?si=qHFDo54YvGxMdvMy", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>僕らのインベンション</p>
+                <p>作曲：宮川 彬良</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=YxKLYTLsQkM?si=GMj2Zt89o7nFS4IQ", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Make Her Mine-in swing-</p>
+                <p>作曲：Eric Lesse</p>
+                <p>編曲：福田 洋介、郷間 幹男</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=RoU8x5k2fSg?si=XbKRSbU9IxH_-FDl", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>- BASSMAN'S HOLIDAY(チューバ吹きの休日)</p>
+                <p>作曲：Grant Hull</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=_bqdh2c9p2g", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["21211", "21221", "21231", "21241", "22211", "22221", "22231", "22241", "23211", "23221", "23231", "23241" ].include?(t.question_code) %>
                 <h6>🍃: 「心の隙間にそっと寄り添う」タイプ</h6>
                 <p>繊細で静かな響き。ハーモニー豊かなバラード系がぴったり。</p>
-                <p>気持ちを落ち着かせてくれる</p>
+                
+                <div class="music-block">
+                <p>主よ人の望みの喜びを</p>
+                <p>作曲：Johann Sebastian Bach</p>
+                <p>編曲：Alfred Reed</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=4rke31K1RS8?si=gnQRTEn8CVpX9l6k", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>さくらのうた</p>
+                <p>作曲：福田 洋介</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=SQYSSq3WIAU?si=FhdEV1j0yz_7A5Ev", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ポロネーズとアリア～吹奏楽のために～</p>
+                <p>作曲：宮下 秀樹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=qRIaoUvyzVU", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>行進曲「煌めきの朝」</p>
+                <p>作曲：牧野 圭吾</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=bmJ-SbE2rWE?si=jdeZJGni5MF6DcqF", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>交響曲「森の詩」</p>
+                <p>作曲：広瀬 勇人</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=BwWeNQrw870?si=86hHyTvV1jAfxLp1", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>落夏流穂</p>
+                <p>作曲：柳川 和樹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=HDph8W31UoM?si=ytgKq8TpyV3hZ--e", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["31112", "31122", "31132", "31142", "32112", "32122", "32132", "32142", "33112", "33122", "33132", "33142" ].include?(t.question_code) %>
                 <h6>🌓: 「寂しさを抱いて、それでも前へ」タイプ</h6>
                 <p>マイナー調でグルーヴ感ある作品を聴いて、心の整理を。</p>
-                <p>幸福感を得やすい</p>
+
+　　　　　　　　　<div class="music-block">
+                <p>IN THE MOOD</p>
+                <p>作曲：Joe Garland)</p>
+                <p>編曲：金山 徹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=iQ-7nK3hcKs?si=YACD9l5Iz1IKv-ZX", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>SING SING SING</p>
+                <p>作曲：Louis Prima</p>
+                <p>編曲：岩井 直溥</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=Y7jSyKUpqAM?si=kJWVkiKehT8Hj-cZ", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Basie-Straight Ahead(ベイシー・ストレイト・アヘッド)</p>
+                <p>作曲：Sammy Nestico</p>
+                <p>編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=rszXuIaCpZo?si=2KuEMMPV9o_rCy3E", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>チュニジアの夜</p>
+                <p>作曲：Dizzy Gillespie、Frank Papaprelli</p>
+                <p>編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=cvOj-Vs1ui0?si=HxF_dReyfIghkfLc", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>オーメンズ・オブ・ラブ</p>
+                <p>作曲：和泉 宏隆</p>
+                <p>編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=89bbL8vPUKc?si=_MgjGX_z_8KZYYdS", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>永遠の翼を持つイカルス</p>
+                <p>作曲：鈴木 英史</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=qXSSsg2YGVg?si=OGeg-3iQsTIRerkZ", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["31212", "31222", "31232", "31242", "32212", "32222", "32232", "32242", "33212", "33222", "33232", "33242" ].include?(t.question_code) %>
                 <h6>🌌: 「深海のような音世界へ」タイプ</h6>
                 <p>ミステリアスなハーモニーや流れるような美しい曲で、音に沈んでみて。</p>
-                <p>アンチエイジングにも最適</p>
+
+                <div class="music-block">
+                <p>不朽の大樹</p>
+                <p>作曲：八木澤 教司</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=i2q98fVUAs4?si=vTuo83dTN7J7Fl_F", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Mindscape for Wind Orchestra(ウィンドオーケストラのためのマインドスケープ)</p>
+                <p>作曲：高 昌帥</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=6NM-wmhUl0w?si=tUUIY76pZVUncELx", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>THE PHANTOM OF THE OPERA(オペラ座の怪人)</p>
+                <p>作曲：Andrew Lloyd Webber(アンドリュー・ロイド＝ウェッバー)</p>
+                <p>編曲：Johan De Meij</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=jIn6EmQbx38?si=51z5vER9p09Oy52i", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>交響曲第１番「悪魔の聖書」</p>
+                <p>作曲：James David</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=j70qQwvIYCs?si=gJ9PL_q49cY4310p", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Translucent Blue</p>
+                <p>作曲：本澤 尚之</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=yut_zfq6iAk?si=ie3Bxd73kDtGRSUN", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>甲斐川に流るるクシナダ姫の涙</p>
+                <p>作曲：樽屋 雅徳</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=5VOAx9lzuBs?si=6k0ZY3nE3BZsve3f", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["41111", "41121", "41131", "41141", "42111", "42121", "42131", "42141", "43111", "43121", "43131", "43141" ].include?(t.question_code) %>
                 <h6>🎉: 「爆発! フェス感MAX」タイプ</h6>
                 <p>打楽器ドカドカ＆スピード感ある超アゲ曲がドンピシャ！</p>
-                <p>万人受けしやすい</p>
+                
+                <div class="music-block">
+                <p>祭-YAGIBUSHI Brass Rock-</p>
+                <p>編曲：福田 洋介</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=vD2y8gqkHWo?si=-ZbGUavJER_hsx2Uf", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Disco Kid(ディスコ・キッド)</p>
+                <p>作曲：東海林 修</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=6luhprcmoo4", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ステップ、スキップ、ノンストップ(順次進行によるカプリッチョ)</p>
+                <p>作曲：後藤 洋</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=cQ6fzQvDdYE", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>エルクンバンチェロ</p>
+                <p>作曲：樽屋 雅徳</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=CqtVzFycmXE", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>「ドラゴンクエストI」より序曲</p>
+                <p>作曲：すぎやまこういち</p>
+                <p>編曲：Johan De Meij</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=LMiITaxX5kg?si=-Y3wraTsrUEl3Nv6", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>アフリカンシンフォニー</p>
+                <p>作曲：Van McCoy</p>
+                <p>編曲：岩井 直溥</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=9zLG2c94-7Y?si=vSf-TZkvsLx4Vfzt", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
 
                 <% elsif ["41211", "41221", "41231", "41241", "42211", "42221", "42231", "42241", "43211", "43221", "43231", "43241" ].include?(t.question_code) %>
                 <h6>🔥: 「カオスを楽しむ前衛派」タイプ</h6>
                 <p>転調や変拍子を多用したクセ強アート系吹奏楽で、音楽の深みを浴びましょう！</p>
                 <p>浄化作用があり。気持ちを落ち着かせてくれる</p>
 
+                <div class="music-block">
+                <p>THIRD SUITE for BAND(吹奏楽のための第3組曲)</p>
+                <p>作曲：Alfred Reed</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=cph6zrpNzi4?si=wgDeA5cGXZMxLR3E", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+                
+　　　　　　　　　<div class="music-block">
+                <p>レトロ</p>
+                <p>作曲：天野 正道</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=a4UTAQOoT1Q", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>民衆を導く自由の女神</p>
+                <p>作曲：樽屋雅徳</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=tnLWlwM3Ano?si=hiSnptG4L1OwbCJR", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>アリエスの角笛</p>
+                <p>作曲：河合 和貴</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=X8LLebFLsHM?si=kRYGzF119xOwMbiL", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+            
+                <div class="music-block">
+                <p>Camarada</p>
+                <p>作曲：高橋 宏樹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=U9LxZNtMUcY?si=OfOh2_uPLj01FSaX", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+　
+                <div class="music-block">
+                <p>Rhapsody In Blue(ラプソディー・イン・ブルー)</p>
+                <p>作曲：George Gershwin</p>
+                <p>編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=3EBsX0Ukmkw", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+                
+
                 <% elsif ["11112", "11122", "11132", "11142", "12112", "12122", "12132", "12142", "13112", "13122", "13132", "13142" ].include?(t.question_code) %>
                 <h6>🎺: 「懐かしさに火が灯る挑戦者」タイプ</h6>
                 <p>アップテンポの中に切なさを感じる旋律がぴったり。懐かしさをバネに前へ。</p>
-                <p>美容効果が高い</p>
+               
+                <div class="music-block">
+                <p>海兵隊</p>
+                <p>作曲：J.M.Fulton</p>
+                <p>編曲：駒田 洋一</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=dXj63nl2Imk?si=lHTlm50zYWppMzm-", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>March The Stars and Stripes Forever(行進曲 星条旗よ永遠なれ)</p>
+                <p>作曲：J.Ph.Sousa</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=pXRUFj_4NEA", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>《コンサートの幕開けを飾る》プロローグ・ワン</p>
+                <p>作曲：田村修平</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=Q8aWWXVXOzw", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>序曲「バラの謝肉祭」</p>
+                <p>作曲：Joseph Olivadoti</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=z-dOBnzl238", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Symphonic Overture(交響的序曲)</p>
+                <p>作曲：James Burnes</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=miAnBF_nKMY?si=dnJtFgqKpb6Kp2lX", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>John Williams in Concert(ジョン・ウィリアムズ・イン・コンサート)</p>
+                <p>作曲：John Williams</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=V6__-pOE3PAsi=ispmcJ66Bj15ZYQJ", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["11212", "11222", "11232", "11242", "12212", "12222", "12232", "12242", "13212", "13222", "13232", "13242" ].include?(t.question_code) %>
                 <h6>🎼: 「感傷の中で燃える芸術肌」タイプ</h6>
                 <p>過去を振り返る構成美のある吹奏楽で、心の奥まで響かせましょう。</p>
-                <p>甘くてフレッシュな、万能な香料</p>
+
+                <div class="music-block">
+                <p>ミュージカル「レ・ミゼラブル」より</p>
+                <p>作曲：Claude-Michel Schönberg</p>
+                <p>編曲：森田 一浩</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=LdYTmeFyzPo?si=7nkUUBjE13Wj_fiK si=ispmcJ66Bj15ZYQJ", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>マードックからの最後の手紙</p>
+                <p>作曲：樽屋雅徳</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=lmurZwVOAJg?si=NmBAJDISR3-8lTrf", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <pマゼランの未知なる大陸への挑戦</p>
+                <p>作曲：樽屋雅徳</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=-mgV_g0Wnwg", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ジェネシス</p>
+                <p>作曲：鈴木英史</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=dGYuVjpBTfM?si=nEuQncv56-btTUqh", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                 <div class="music-block">
+                <p>El Camino Real(エル・カミーノ・レアル)</p>
+                <p>作曲：Alfred Reed</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=9YEuC0QRylo?si=aq621-LMK8Grs1Yy", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ROMANESQUE(ロマネスク)</p>
+                <p>作曲：James Swearingen</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=HUcaw34o6U4?si=ckOh2F3eTiAR1qEx", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["21112", "21122", "21132", "21142", "22112", "22122", "22132", "22142", "23112", "23122", "23132", "23142" ].include?(t.question_code) %>
                 <h6>🌿: 「ゆるノスタルジック」タイプ</h6>
                 <p>ポップで心地よく、少し昔を感じさせるメロディがマッチ。</p>
-                <p>官能的で重い香り</p>
+                
+                <div class="music-block">
+                <p>OLD SCOTTISH MELODY（蛍の光）</p>
+                <p>作曲：JCharles A. Wiley</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=/OYb2NlsAt5k?si=Ocj-TaoA8rfJuG5X", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>マーチ「プロヴァンスの風」</p>
+                <p>作曲：田坂直樹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=ggJCJNdOx1s", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>アルルの女第2組曲より第4楽章ファランドール</p>
+                <p>作曲：Gerges Bizet</p>
+                <p>編曲：片岡 寛晶</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=41f3-nTU4u0", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Moonlight Serenade(ムーンライト・セレナーデ)</p>
+                <p>作曲：Glenn Miller</p>
+                <p>編曲：金山 徹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=zZuhMK1s9Cw?si=RXoRdF_Os2FTDzs9", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Make Her Mine-in swing-</p>
+                <p>作曲：Eric Lesse</p>
+                <p>編曲：福田 洋介、郷間 幹男</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=RoU8x5k2fSg?si=XbKRSbU9IxH_-FDl", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+　　　　　　　  　<div class="music-block">
+                <p>ベイ・ブリーズ-岩井直溥氏に捧ぐ-</p>
+                <p>作曲・編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=HUcaw34o6U4?si=dGFL3ynhHZ8?si=qHFDo54YvGxMdvMy", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["21212", "21222", "21232", "21242", "22212", "22222", "22232", "22242", "23212", "23222", "23232", "23242" ].include?(t.question_code) %>
                 <h6>🍃: 「静かに漂う追憶」タイプ</h6>
                 <p>やさしく包むハーモニーと静かな木管の響きで、過去に寄り添うひとときを。</p>
-                <p>魅惑的で色気のある香り</p>
+                
+                <div class="music-block">
+                <p>天国の島</p>
+                <p>作曲：佐藤 博昭</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=N_0CdLWeVPE", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>All Wishes〜全ての願いを込めて〜</p>
+                <p>作曲：清水 大輔</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=IdEgzs8CynY?si=1cdiuKifuK-1EA3K", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>フロンティア・スピリット</p>
+                <p>作曲：伊藤 宏武</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=IBKSIKG0OcA", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>風がきらめくとき</p>
+                <p>作曲：近藤 礼隆</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=oyEiQAgWCXE", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                 <div class="music-block">
+                <p>交響曲「森の詩」</p>
+                <p>作曲：広瀬 勇人</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=BwWeNQrw870?si=86hHyTvV1jAfxLp1", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>落夏流穂</p>
+                <p>作曲：柳川 和樹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=HDph8W31UoM?si=ytgKq8TpyV3hZ--e", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["31111", "31121", "31131", "31141", "32111", "32121", "32131", "32141", "33111", "33121", "33131", "33141" ].include?(t.question_code) %>
                 <h6>🌓: 「沈思しながら前へ進む」タイプ</h6>
                 <p>マイナー調やエンタメ寄りの構成で、新たな一歩を後押し。</p>
-                <p>香水のアクセントとしてよく使われる</p>
+               
+                <div class="music-block">
+                <p>SONGS OF SAILOR AND SEA(海の男たちの歌)</p>
+                <p>作曲：Robert Winston Smith </p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=qm34cTU2aEk?si=qsWpvrRHRrR_pOlG", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
 
-                <% elsif ["31211", "31221", "31231", "31241", "32211", "32221", "32231", "32241", "33211", "33221", "33231", "33241" ].include?(t.question_code) %>
+                <div class="music-block">
+                <p>宝島</p>
+                <p>作曲：和泉 宏隆</p>
+                <p>編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=_0DiGk_rxY8", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>僕らのインベンション</p>
+                <p>作曲：宮川 彬良</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=YxKLYTLsQkM?si=GMj2Zt89o7nFS4IQ", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Basie-Straight Ahead(ベイシー・ストレイト・アヘッド)</p>
+                <p>作曲：Sammy Nestico</p>
+                <p>編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=rszXuIaCpZo?si=2KuEMMPV9o_rCy3E", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>チュニジアの夜</p>
+                <p>作曲：Dizzy Gillespie、Frank Papaprelli</p>
+                <p>編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=cvOj-Vs1ui0?si=HxF_dReyfIghkfLc", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>永遠の翼を持つイカルス</p>
+                <p>作曲：鈴木 英史</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=qXSSsg2YGVg?si=OGeg-3iQsTIRerkZ", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
+
+                <% elsif ["31211", "31221", "31231", "31241", "32211", "32221", "32231", "32241", "33211", "33221", "33231", "33241" ].include?(te.question_code) %>
                 <h6>🌌: 「静寂の中に差す光」タイプ</h6>
                 <p>幻想的で希望を秘めた楽曲がおすすめ。終盤に光が差すような構成を。</p>
-                <p>上品で年齢を問わず人気が高い</p>
+                
+                <div class="music-block">
+                <p>ジェネシス</p>
+                <p>作曲：鈴木英史</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=dGYuVjpBTfM?si=nEuQncv56-btTUqh", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Mindscape for Wind Orchestra(ウィンドオーケストラのためのマインドスケープ)</p>
+                <p>作曲：高 昌帥</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=6NM-wmhUl0w?si=tUUIY76pZVUncELx", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Pictures at an Exhibition（展覧会の絵）</p>
+                <p>作曲：Modest Petrovich Mustorgsky</p>
+                <p>編曲：鈴木 栄一</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=n-ugTVI1OKg", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Camarada</p>
+                <p>作曲：高橋 宏樹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=U9LxZNtMUcY?si=OfOh2_uPLj01FSaX", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ポロネーズとアリア～吹奏楽のために～</p>
+                <p>作曲：宮下 秀樹</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=qRIaoUvyzVU", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>KA-GU-RA for Band</p>
+                <p>作曲：福田 洋介</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=f3HgOYs6p9o?si=ovKMsq0oiny5b-v-", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
 
                 <% elsif ["41112", "41122", "41132", "41142", "42112", "42122", "42132", "42142", "43112", "43122", "43132", "43142" ].include?(t.question_code) %>
                 <h6>🎉: 「懐かしフェス！」タイプ</h6>
                 <p>レトロなメロディやゲーム音楽風アレンジで、踊りながら泣ける体験を。</p>
-                <p>恋愛に効果があり</p>
+                
+                <div class="music-block">
+                <p>ディープ・パープル ･ メドレー</p>
+                <p>作曲：佐橋 俊彦</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=tIQZE8HDe2g", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
 
+                <div class="music-block">
+                <p>「ドラゴンクエストI」より序曲</p>
+                <p>作曲：すぎやまこういち</p>
+                <p>編曲：Johan De Meij</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=LMiITaxX5kg?si=-Y3wraTsrUEl3Nv6", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>ステップ、スキップ、ノンストップ(順次進行によるカプリッチョ)</p>
+                <p>作曲：後藤 洋</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=cQ6fzQvDdYE", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>エルクンバンチェロ</p>
+                <p>作曲：樽屋 雅徳</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=CqtVzFycmXE", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>アフリカンシンフォニー</p>
+                <p>作曲：Van McCoy</p>
+                <p>編曲：岩井 直溥</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=9zLG2c94-7Y?si=vSf-TZkvsLx4Vfzt", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>序曲「バラの謝肉祭」</p>
+                <p>作曲：Joseph Olivadoti</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=z-dOBnzl238", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
+
+
+                
                 <% elsif ["41212", "41222", "41232", "41242", "42212", "42222", "42232", "42242", "43212", "43222", "43232", "43242" ].include?(t.question_code) %>
                 <h6>🔥: 「カオス回顧派」タイプ</h6>
                 <p>変拍子・転調満載の芸術曲で、記憶の断片を暴れさせるような体験を。</p>
-                <p>集中力を高める効果もあり</p>
+
+                <div class="music-block">
+                <p>The Pines of Rome - Symphonic Poem(交響詩「ローマの松 ｣より)</p>
+                <p>作曲：Ottorino Respighi</p>
+                <p>編曲：鈴木英史</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=3Uj8h8Ibhcw", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>レトロ</p>
+                <p>作曲：天野 正道</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=a4UTAQOoT1Q", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>アリエスの角笛</p>
+                <p>作曲：河合 和貴</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=X8LLebFLsHM?si=kRYGzF119xOwMbiL", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+            　　 <div class="music-block">
+                <p>民衆を導く自由の女神</p>
+                <p>作曲：樽屋雅徳</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=tnLWlwM3Ano?si=hiSnptG4L1OwbCJR", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>THIRD SUITE for BAND(吹奏楽のための第3組曲)</p>
+                <p>作曲：Alfred Reed</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=cph6zrpNzi4?si=wgDeA5cGXZMxLR3E", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                <div class="music-block">
+                <p>Rhapsody In Blue(ラプソディー・イン・ブルー)</p>
+                <p>作曲：George Gershwin</p>
+                <p>編曲：真島 俊夫</p>
+                <div class="listen-button-wrapper">
+                <%= link_to "🎧 聴いてみる", "https://www.youtube.com/watch?v=3EBsX0Ukmkw", class: "btn btn-listen", target: "_blank", rel: "noopener" %>
+                </div>
+                </div>
+
+                </div>
 
                 <% else %>
                 <h6>診断結果が見つかりませんでした</h6>
-                <p>診断コード: <%= t.question_code %></p>
+                <p>診断コード: <%= @perfume.question_code %></p>
+
                 <% end %>
 
-<% end %>
+                
+ <% end %>

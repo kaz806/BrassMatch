@@ -1,0 +1,125 @@
+/* 全体ラップ */
+.profile-edit-container {
+  max-width: 640px;
+  margin: 3em auto;
+  padding: 2em;
+  background-color: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+/* 見出し */
+.profile-edit-container h2,
+.profile-edit-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5em;
+}
+
+/* フィールド */
+.field {
+  margin-bottom: 1.5em;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #444;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.75em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* 補足説明 */
+.field em {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* エラーメッセージ */
+#error_explanation {
+  background-color: #ffecec;
+  border: 1px solid #f5c2c2;
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: 6px;
+  color: #c00;
+}
+
+/* ボタン */
+.actions {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.actions input[type="submit"] {
+  background-color: #08c7a8;
+  color: #fff;
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #08c7a8;
+}
+
+/* 退会ボタン */
+.withdraw-section {
+  margin-top: 0.5em;        /* ← 外側の余白（上）を小さくする */
+  padding: 1em 1.5em;       /* ← 内側の余白（上下左右）を減らす */
+  background-color: #e8f2f9;
+  border: 1px solid #41a6e5;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(53, 184, 220, 0.1);
+}
+
+.withdraw-section h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.withdraw-button {
+  text-align: center;
+}
+
+.withdraw-button button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.withdraw-button button:hover {
+  background-color: #a71d2a;
+}
+
+/* 戻るリンク */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 1.5em;
+  color: #555;
+  text-decoration: underline;
+}

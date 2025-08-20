@@ -1,0 +1,52 @@
+.page-title {
+  font-size: 32px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #222;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.user-info p,
+.tweet-item p {
+  margin: 4px 0;
+}
+
+.tweet-item {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.btn-outline-primary {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.center-button .btn {
+  background-color: #08c7a8;
+  color: #fff;
+  padding: 0.5em 1em;       /* 横幅を少しコンパクトに */
+  font-size: 0.95em;        /* 少しだけ小さめに */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;      /* 改行を防いで横幅を最小限に */
+  width: auto;              /* 必要な分だけの幅に */
+  max-width: 200px;         /* 最大幅を制限（必要なら調整） */
+  text-align: center;
+}
