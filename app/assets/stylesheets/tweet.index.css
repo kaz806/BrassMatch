@@ -173,3 +173,70 @@ html, body {
   margin-bottom: 1em; /* 適度な余白 */
 }
 
+.tweet-info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.info-block {
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.info-block {
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.value {
+  margin: 0;
+  padding-left: 8px;
+}
+
+.new-label {
+  margin-left: 8px;
+  background-color: #ff5e5e;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.tweet.newest {
+  background-color: #fffbe6;
+  border: 2px solid #ffd700;
+}
+
+.link-group {
+  display: flex;
+  justify-content: flex-end; /* 右端に寄せる */
+  gap: 1rem; /* リンク間の余白 */
+  margin-top: 1em;
+}
+
+.new-post-link,
+.mypage-link {
+  text-decoration: none;
+  padding: 0.5em 1em;
+  background-color: #08c7a8;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.new-post-link:hover,
+.mypage-link:hover {
+  background-color: #08b094;
+}

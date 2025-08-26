@@ -1,12 +1,12 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.includes(:user).order(created_at: :desc)
   end
 
-  def show
-    @tweet = Tweet.find(params[:id])
-    @user = @tweet.user
-  end
+ def show
+  @tweet = Tweet.find(params[:id])
+  @user = @tweet.user
+end
 
   def new
     @tweet = Tweet.new

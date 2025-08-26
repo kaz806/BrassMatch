@@ -1,16 +1,31 @@
 <div class="page-wrapper">
   <h1 class="page-title">コメント一覧</h1>
 
-  <div class="tweets-container">
+  <div class="link-group">
+  <%= link_to "新規投稿へ", new_tweet_path, class: "new-post-link" %>
+  </div>
 
-    <% @tweets.each do |t| %>
-      <div class="tweet">
+  <div class="tweets-container">
+     <% @tweets.each_with_index do |t, i| %>
+      <div class="tweet<%= 'newest' if i == 0 %>">
         <div class="main-box">
           <div class="left-container">
-            <p><%= t.user.name %>（<%= t.user.email %>）</p>
-            <p><%= t.music %></p>
-            <p><%= t.detail %></p>
-            <p class="time"><%= t.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+               <% if i == 0 %>
+               <span class="new-label">NEW!</span>
+               <% end %>
+
+            <div class="info-block">
+             <p class="label">名前</p>
+             <p class="value"><%= t.user.name %>（<%= t.user.email %>）</p>
+            </div>
+            <div class="info-block">
+             <p class="label">曲名</p>
+             <p class="value"><%= t.music %></p>
+            </div>
+            <div class="info-block">
+             <p class="label">コメント</p>
+             <p class="value"><%= t.detail %></p>
+            </div>
           </div>
 
           <div class="right-container">
@@ -20,17 +35,7 @@
               <%= link_to "削除する", tweet_path(t.id), method: :delete %>
             <% end %>
           </div>
-        </div>
-      </div>
-    <% end %>
-
-    <div class="nav-links">
-  <% if user_signed_in? %>
-    <div><%= link_to "マイページへ", user_path(current_user.id), class: "mypage-link" %></div>
-  <% end %>
-
-  <div><%= link_to "新規投稿へ", new_tweet_path, class: "new-post-link" %></div>
-</div>
-
-  </div>
+      </div>   
+    </div>
+<% end %>
 </div>

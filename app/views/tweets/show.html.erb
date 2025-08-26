@@ -1,5 +1,5 @@
 <div class="tweet-detail-container">
-  <h1>コメント詳細</h1>
+  <h1>コメント一覧</h1>
 
   <% if @tweet.user.present? %>
     <div class="user-info-box">
@@ -7,21 +7,19 @@
       <p><strong>メールアドレス:</strong> <%= @tweet.user.email %></p>
       <p><strong>プロフィール:</strong> <%= @tweet.user.profile %></p>
     </div>
-
-    <div class="tweet-box">
-    <div class="tweet-content">
-      <p><strong>内容:</strong> <%= @tweet.detail %></p>
-    </div>
-
-  </div>
   <% else %>
     <p class="alert">投稿者情報が取得できませんでした</p>
   <% end %>
 
+  <div class="tweet-box">
+    <div class="tweet-content">
+      <p><strong>曲名:</strong> <%= @tweet.music %></p>
+      <p><strong>内容:</strong> <%= @tweet.detail %></p>
+      <p class="time"><%= @tweet.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M") %></p>
+    </div>
   </div>
-
 </div>
 
 <div class="back-link-wrapper">
-  <%= link_to "コメント一覧に戻る", tweets_path, class: "btn btn-secondary" %>
-  </div>
+  <%= link_to "トップに戻る", root_path, class: "btn btn-secondary" %>
+</div>

@@ -50,3 +50,15 @@
   max-width: 200px;         /* 最大幅を制限（必要なら調整） */
   text-align: center;
 }
+
+.diagnosis-button {
+  margin: 5px;
+  padding: 8px 12px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.diagnosis-button:hover {
+  background-color: #ddd;
+}

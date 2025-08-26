@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_17_194631) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_22_170054) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "tweet_id", null: false
@@ -33,6 +36,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_17_194631) do
     t.string "question4"
     t.string "question5"
     t.string "question_code"
+    t.string "result"
     t.index ["user_id"], name: "index_perfumes_on_user_id"
   end
 
