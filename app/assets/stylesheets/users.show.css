@@ -62,3 +62,337 @@
 .diagnosis-button:hover {
   background-color: #ddd;
 }
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.liked-tweets {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tweet-card {
+  border: 1px solid #e1e8ed;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.tweet-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+.tweet-actions {
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+  color: #e0245e;
+}
+
+.like-icon {
+  font-size: 1.2rem;
+}
+
+.like-count {
+  font-weight: bold;
+}
+
+.activity-nav {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid #ccc;
+  z-index: 1000;
+}
+
+.activity-nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.activity-nav a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.activity-nav a:hover {
+  text-decoration: underline;
+}
+
+.subsection-title {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #007bff;
+  padding-left: 0.5rem;
+  color: #333;
+}
+
+.activity-section {
+  margin-top: 2rem;
+}
+
+.right-container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.right-container a {
+  padding: 6px 12px;
+  background-color: #08c7a8;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.right-container a:hover {
+  background-color: #08b094;
+}
+
+.tweet-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+}
+
+.tweet-content {
+  flex: 1;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 1rem;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.btn-edit {
+  background-color: #08b094;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  margin-left: 1rem;
+}
+
+.like-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.btn-like-icon {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.1s ease;
+}
+
+.btn-like-icon:hover {
+  transform: scale(1.2);
+}
+
+.like-count {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #e63946;
+}
+
+.music-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.music-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.music-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.composer {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+}
+
+.btn-listen {
+  background-color: #08c7a8;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.btn-listen:hover {
+  background-color: #08b094;
+}
+
+.music-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 横方向中央揃え */
+  justify-content: center; /* 縦方向中央揃え（必要に応じて） */
+  text-align: center;
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.music-card {
+  text-align: center;
+}
+
+.music-card .btn-listen {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.activity-section {
+  display: none;
+}
+.activity-section.active {
+  display: block;
+}
+
+.music-card {
+  max-width: 480px;           /* カードの最大幅を指定 */
+  width: 100%;                /* 親要素に合わせて伸縮 */
+  margin: 1.5rem auto;        /* 上下余白 + 左右中央寄せ */
+  padding: 1rem 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.music-card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.music-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+.composer {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.btn-listen {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #08c7a8;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-listen:hover {
+  background-color: #08b094;
+}
+
+.empty-box {
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  padding: 0.6em 0.8em;
+  margin: 0.8em auto;
+  border-radius: 4px;
+  text-align: center;
+  max-width: 480px;
+  font-size: 0.9rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.empty-message {
+  color: #444;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.empty-box:hover {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

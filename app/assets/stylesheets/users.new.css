@@ -71,3 +71,18 @@ input[type="password"] {
   color: #333;
   line-height: 1.6;
 }
+
+.field label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px; /* 2pxだと詰まりすぎる場合があるので、4pxで自然な余白に */
+  line-height: 1; /* テキストの上下の余白を詰める */
+  white-space: nowrap; /* 折り返し防止 */
+}
+
+.remember-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px; /* チェックボックスとラベルの距離を統一 */
+  white-space: nowrap;
+}

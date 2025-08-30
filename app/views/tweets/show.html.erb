@@ -18,6 +18,23 @@
       <p class="time"><%= @tweet.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M") %></p>
     </div>
   </div>
+
+  <div class="tweet-actions">
+    <% if user_signed_in? %>
+      <% if current_user.already_liked?(@tweet) %>
+        <%= link_to tweet_like_path(id: @tweet.id, tweet_id: @tweet.id), class: "like-button liked", data: { turbo_method: :delete } do %>
+          💗 <span class="like-count"><%= @tweet.likes.count %></span>
+        <% end %>
+      <% else %>
+        <%= link_to tweet_likes_path(id: @tweet.id, tweet_id: @tweet.id), class: "like-button", data: { turbo_method: :post } do %>
+          ♡ <span class="like-count"><%= @tweet.likes.count %></span>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p class="like-count-static">♡ <%= @tweet.likes.count %></p>
+    <% end %>
+  </div>
+</div>
 </div>
 
 <div class="back-link-wrapper">

@@ -8,8 +8,12 @@ class User < ApplicationRecord
          validates :name, presence: true
          validates :profile, length: { maximum: 200 }
 
-         has_many :likes
+         has_many :likes, dependent: :destroy
          has_many :liked_tweets, through: :likes, source: :tweet
+
+          def already_liked?(tweet)
+            self.likes.exists?(tweet_id: tweet.id)
+          end
 
          
     has_many :perfumes

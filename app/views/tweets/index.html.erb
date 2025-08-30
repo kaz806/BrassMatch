@@ -2,30 +2,48 @@
   <h1 class="page-title">コメント一覧</h1>
 
   <div class="link-group">
-  <%= link_to "新規投稿へ", new_tweet_path, class: "new-post-link" %>
+    <%= link_to "新規投稿へ", new_tweet_path, class: "new-post-link" %>
   </div>
 
   <div class="tweets-container">
-     <% @tweets.each_with_index do |t, i| %>
-      <div class="tweet<%= 'newest' if i == 0 %>">
+    <% @tweets.each_with_index do |t, i| %>
+      <div class="tweet <%= 'newest' if i == 0 %>">
         <div class="main-box">
           <div class="left-container">
-               <% if i == 0 %>
-               <span class="new-label">NEW!</span>
-               <% end %>
+            <% if i == 0 %>
+              <span class="new-label">NEW!</span>
+            <% end %>
 
             <div class="info-block">
-             <p class="label">名前</p>
-             <p class="value"><%= t.user.name %>（<%= t.user.email %>）</p>
+              <p class="label">名前</p>
+              <p class="value"><%= t.user.name %>（<%= t.user.email %>）</p>
             </div>
+
             <div class="info-block">
-             <p class="label">曲名</p>
-             <p class="value"><%= t.music %></p>
+              <p class="label">曲名</p>
+              <p class="value"><%= t.music %></p>
             </div>
+
             <div class="info-block">
-             <p class="label">コメント</p>
-             <p class="value"><%= t.detail %></p>
+              <p class="label">コメント</p>
+              <p class="value"><%= t.detail %></p>
             </div>
+          </div>
+
+          <div class="tweet-actions">
+            <% if user_signed_in? %>
+              <% if current_user.already_liked?(t) %>
+                <%= link_to tweet_like_path(id: t.id, tweet_id: t.id), class: "like-button liked", data: { turbo_method: :delete } do %>
+                💗 <span class="like-count"><%= t.likes.count %></span>
+              <% end %>
+            <% else %>
+                <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id), class: "like-button", data: { turbo_method: :post } do %>
+                ♡ <span class="like-count"><%= t.likes.count %></span>
+                <% end %>
+            <% end %>
+            <% else %>
+                <p class="like-count-static">♡ <%= t.likes.count %></p>
+            <% end %>
           </div>
 
           <div class="right-container">
@@ -35,7 +53,8 @@
               <%= link_to "削除する", tweet_path(t.id), method: :delete %>
             <% end %>
           </div>
-      </div>   
-    </div>
-<% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

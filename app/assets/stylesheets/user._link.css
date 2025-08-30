@@ -1,0 +1,36 @@
+.login-links-box {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.login-link-item {
+  margin: 10px 0;
+}
+
+.login-link-item a {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.login-link {
+  background-color: #f0f8ff;
+  color: #007bff;
+}
+
+.forgot-link {
+  background-color: #08b094;
+  color: #ffffff;
+}
+
+.signup-link {
+  background-color: #08b094;
+  color: #ffffff;
+}
+
+.login-link-item a:hover {
+  opacity: 0.85;
+}

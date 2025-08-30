@@ -240,3 +240,35 @@ html, body {
 .mypage-link:hover {
   background-color: #08b094;
 }
+
+.like-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #999;
+  transition: color 0.2s ease;
+}
+
+.like-button:hover {
+  color: #ff69b4; /* ホバー時にピンク */
+}
+
+.like-button.liked {
+  color: #ff69b4; /* 既にいいね済みならピンク */
+}
+
+.like-count {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+.like-count-static {
+  font-size: 1.2rem;
+  color: #ccc;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

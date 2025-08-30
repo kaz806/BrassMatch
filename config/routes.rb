@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :tweets
+  resources :tweets do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :perfumes, only: [:index, :new, :show, :create]
  
 
@@ -25,6 +27,14 @@ get 'results', to: 'posts#result', as: 'results'
 
 
  root 'tweets#index'
+
+ # config/routes.rb
+resources :tweets do
+  member do
+    post 'like'
+  end
+end
+
 
 end
 

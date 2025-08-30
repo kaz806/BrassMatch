@@ -125,4 +125,124 @@
   border-radius: 8px;
 }
 
+.section-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.4rem;
+}
 
+.liked-users {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.liked-users li {
+  padding: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.tweet-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.tweet-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.tweet-actions {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.like-button {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #999;
+  transition: color 0.2s ease;
+}
+
+.like-button:hover,
+.like-button.liked {
+  color: #ff69b4;
+}
+
+.like-count,
+.like-count-static {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+.music-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.music-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.music-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.composer {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+}
+
+.btn-listen {
+  background-color: #08c7a8;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.btn-listen:hover {
+  background-color: #08c7a8;
+}
+
+.music-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 横方向中央揃え */
+  justify-content: center; /* 縦方向中央揃え（必要に応じて） */
+  text-align: center;
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.music-card {
+  text-align: center;
+}
+
+.music-card .btn-listen {
+  display: inline-block;
+  margin-top: 8px;
+}

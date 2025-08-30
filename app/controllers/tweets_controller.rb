@@ -37,6 +37,12 @@ end
      end
   end
 
+  def like
+  @tweet = Tweet.find(params[:id])
+  @tweet.likes.create(user: current_user)
+  redirect_back fallback_location: user_path(current_user)
+end
+
   private
 
   def tweet_params
